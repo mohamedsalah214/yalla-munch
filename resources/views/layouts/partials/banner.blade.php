@@ -5,9 +5,20 @@
                 <p class="mb-0 text-white small text-decoration-none mt-1">Discover our Best-Selling Favorites</p>
             </div>
             <div class="col-lg-6 text-end">
-                <a href="http://" class="text-white small text-decoration-none me-3">Refer & Get $20</a>
-                <a href="http://" class="text-white small text-decoration-none me-3">Nuts For Business</a>
-                <a href="http://" class="text-white small text-decoration-none me-3">Help</a>
+
+                @php
+                    $locale = session('locale', app()->getLocale());
+                @endphp
+
+                @if ($locale === 'ar')
+                    <a href="{{ route('setLocale', 'en') }}" class="text-white small">English</a>
+                @else
+                    <a href="{{ route('setLocale', 'ar') }}" class="text-white small me-3">عربي</a>
+                @endif
+
+                {{-- <a href="http://" class="text-white small text-decoration-none me-3">Refer & Get $20</a> --}}
+                {{-- <a href="http://" class="text-white small text-decoration-none me-3">Nuts For Business</a> --}}
+                {{-- <a href="http://" class="text-white small text-decoration-none me-3">Help</a> --}}
                 <span class="text-white small me-3">|</span>
                 <a href="http://" class="text-white small text-decoration-none">FREE shipping on orders over 1000
                     EGP</a>

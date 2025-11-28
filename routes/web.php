@@ -7,15 +7,12 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\WishlistController;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::get('lang/{locale}', function ($locale) {
-    session(['locale' => $locale]);
-    app()->setLocale($locale);
+Route::get('language/{locale}', function ($locale) {
+    if (in_array($locale, ['en', 'ar'])) {
+        session(['locale' => $locale]);
+    }
     return redirect()->back();
-});
+})->name('setLocale');
 
 Route::get('/', [HomeController::class, 'index'])->name('/');
 
@@ -98,3 +95,7 @@ Route::get('/terms-conditions', function () {
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
+
+Route::get('/thanks', function () {
+    return view('thanks');
+})->name('thanks');

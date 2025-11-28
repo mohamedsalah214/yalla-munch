@@ -4,7 +4,14 @@
 
 @section('content')
 
-    <div class="container-lg mb-4">
+    <x-breadcrumb :items="[
+        ['name' => 'Home', 'url' => '/'],
+        ['name' => 'Shop', 'url' => 'shop'],
+        // ['name' => $requestCategory, 'url' => 'shop'],
+        ['name' => $requestCategory],
+    ]" />
+
+    {{-- <div class="container-lg mb-4">
         <nav aria-label="breadcrumb" class="first d-md-flex mt-4">
             <ol class="breadcrumb indigo lighten-6">
                 <li class="breadcrumb-item p-0">
@@ -35,7 +42,7 @@
                 </li>
             </ol>
         </nav>
-    </div>
+    </div> --}}
 
     {{-- <section class="mt-4 pb-5 overflow-hidden">
         <div class="container-lg">

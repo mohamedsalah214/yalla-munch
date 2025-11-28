@@ -228,12 +228,12 @@
                             width="90px">
                     </a>
                 </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                {{-- <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <svg width="24" height="24" viewBox="0 0 24 24">
                         <use xlink:href="#menu"></use>
                     </svg>
-                </button>
+                </button> --}}
             </div>
             <div class="col-lg-8">
                 <ul

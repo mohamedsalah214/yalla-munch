@@ -43,7 +43,7 @@
             </div>
             <div class="col-lg-5">
                 <div class="p-5 border rounded-3 shadow">
-                    <h4>{{ __('checkout.order_summary') }}</h4>
+                    <h4>{{ __('messages.checkout.order_summary') }}</h4>
                     <ul class="list-group mb-3">
                         @foreach ($cartItems as $item)
                             <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -56,7 +56,7 @@
                             </li>
                         @endforeach
                     </ul>
-                    <h5 class="text-end">{{ __('checkout.total') }}: {{ $total }} EGP</h5>
+                    <h5 class="text-end">{{ __('messages.checkout.total') }}: {{ $total }} EGP</h5>
                 </div>
             </div>
         </div>

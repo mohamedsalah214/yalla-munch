@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
@@ -17,9 +18,28 @@ class CartController extends Controller
 
     public function add(Request $request)
     {
-        $product = Product::findOrFail($request->product_id);
+        // dd($request);
+
+        $data = $request->validate([
+            'product_id'    => 'required|integer|exists:products,id',
+            'weight'        => 'required|string',
+            'quantity'      => 'required|integer|min:1',
+            'price'         => 'required|numeric|min:0',
+        ]);
+
+        $productId  = $data['product_id'];
+        $weight     = $data['weight'];
+        $quantity   = $data['quantity'];
+        $price      = $data['price'];
+
+        $product = Product::findOrFail($productId);
+
+        $weights = DB::table('product_weights')
+            ->where('id', $weight)
+            ->first();
 
         $cart = session()->get('cart', []);
+
         $key = $product->id . '-' . $request->weight;
 
         if (isset($cart[$key])) {
@@ -27,15 +47,16 @@ class CartController extends Controller
             $cart[$key]['total'] = $cart[$key]['quantity'] * $cart[$key]['price'];
         } else {
             $cart[$key] = [
-                'product_id' => $product->id,
-                'name' => $product->name,
-                'weight' => $request->weight,
-                'quantity' => $request->quantity,
-                'price' => $request->price,
-                'total' => $request->price * $request->quantity,
-                'image' => $product->image,
+                'product_id'    => $productId,
+                'name'          => $product->name,
+                'weight'        => $weights['label'],
+                'quantity'      => $quantity,
+                'price'         => $price,
+                'total'         => $price * $request->quantity,
+                'image'         => $product->image,
             ];
         }
+        dd($cart);
 
         session()->put('cart', $cart);
 

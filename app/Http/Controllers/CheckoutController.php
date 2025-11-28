@@ -45,6 +45,9 @@ class CheckoutController extends Controller
         ]);
 
         $cartItems  = session('cart', []);
+
+        // dd($cartItems);
+
         $total      = collect($cartItems)->sum(fn($item) => $item['price'] * $item['quantity']);
 
         $order = Order::create([
@@ -68,16 +71,21 @@ class CheckoutController extends Controller
             'notes'             => $validated['notes'] ?? '',
         ]);
 
+        // dd($cartItems);
+
         foreach ($cartItems as $item) {
+            $weightLabel = is_object($item['weight']) ? $item['weight']->label : $item['weight'];
             $order->items()->create([
-                'order_id'          => $order->id,
-                'product_id'        => $item['product_id'],
-                'quantity'          => $item['quantity'],
-                'weight'            => $item['weight'],
-                'price'             => $item['price'],
-                'subtotal'          => $item['total'],
+                'order_id'   => $order->id,
+                'product_id' => $item['product_id'],
+                'quantity'   => $item['quantity'],
+                'weight'     => $weightLabel, // مثلاً تخزن الـ label "250"
+                'price'      => $item['price'],
+                'subtotal'   => $item['total'],
             ]);
         }
+
+
 
         // بعد إنشاء الطلب ممكن تمسح السلة من السشن
         // session()->forget('cart');

@@ -105,7 +105,7 @@
 
 <body>
 
-    <!-- Social Chat Widget -->
+    {{-- <!-- Social Chat Widget -->
     <div id="chat-widget">
         <a href="https://wa.me/+201035187798" target="_blank" class="chat-btn whatsapp">
             <img src="{{ asset('assets/icons/whatsapp.svg') }}" alt="WhatsApp" width="40">
@@ -113,7 +113,11 @@
         <a href="https://m.me/61575143535376" target="_blank" class="chat-btn messenger">
             <img src="{{ asset('assets/icons/facebook-messenger.svg') }}" alt="Messenger" width="40">
         </a>
-    </div>
+    </div> --}}
+
+    <!-- Elfsight WhatsApp Chat | Untitled WhatsApp Chat -->
+    <script src="https://elfsightcdn.com/platform.js" async></script>
+    <div class="elfsight-app-5becd72f-1230-4201-8837-605e5b2d34a0" data-elfsight-app-lazy></div>
 
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T2XVXKH9" height="0" width="0"

@@ -2,6 +2,7 @@
 
 return [
 
+    /// Home Page
     'home-previous'             => 'Previous',
     'home-next'                 => 'Next',
     'home-category'             => 'Our Categories',
@@ -13,12 +14,19 @@ return [
     'home-just-arrived'         => 'Just arrived',
     'home-what-craving'         => 'What Are You Craving?',
 
-
+    /// Item Card
     'item-add-to-cart'          => 'Add to cart',
     'item-off'                  => 'OFF',
 
+    /// General
     'currency'                  => 'EGP',
 
+    /// cart sid nav
+    'sidnav-cart'               => 'Cart',
+    'sidnav-products-plus'      => 'Products Plus',
+    'sidnav-price'              => 'Price',
+    'sidnav-total'              => 'Total',
+    'sidnav-complete-order'     => 'Complete Order',
 
     /// Checkout Page
     'checkout-title'            => 'Secure Checkout',
@@ -43,6 +51,7 @@ return [
     'checkout-complete-order'   => 'Complete Order',
     'checkout-order-type'       => 'Order Type',
     'checkout-order-summary'    => 'Order Summary',
-    'checkout.total'            => 'Total',
+    'checkout-total'            => 'Total',
+    'checkout-order_summary'    => 'Order Summary',
 
 ];

@@ -27,7 +27,7 @@
                                     <div>{{ $item['name'] }}</div>
                                 </div>
                             </td>
-                            <td>{{ $item['weight'] }}g</td>
+                            {{-- <td>{{ $item['weight'] }}g</td> --}}
                             <td style="width: 150px;">
                                 <input type="number" min="1" class="form-control quantity-input"
                                     value="{{ $item['quantity'] }}">
